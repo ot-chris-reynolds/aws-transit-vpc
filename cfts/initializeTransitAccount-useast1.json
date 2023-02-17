@@ -13,7 +13,7 @@
         "PaGroupTemplateUrl": {
             "Description" : "Palo Alto Cloudformation Template url",
             "Type" : "String",
-            "Default": "https://palo-bucket-2.s3.us-east-2.amazonaws.com/paGroupCft.json"
+            "Default": "https://palo-alto-east-1-b.s3.amazonaws.com/paGroupCft.json"
         },
         "DeLicenseApiKey": {
             "Description" : "PA license deactivation API Key",
@@ -33,12 +33,12 @@
         "paBootstrapBucketName" : {
             "Description" : "Existing S3 bucket which is having PA-Bootstrap configuration",
             "Type" : "String",
-            "Default": "palo-bucket-1"
+            "Default": "palo-alto-east-1-a"
         },
         "LambdaFunctionsBucketName": {
           "Description": "Existing S3 bucket name which is having the Lambda funtions zip",
           "Type": "String",
-          "Default": "palo-bucket-2"
+          "Default": "palo-alto-east-1-b"
         },
         "VpnConfigBucketName": {
           "Description": "Creates a S3-bucket for VPN Configuration files. NOTE: S3 bucket names are globally unique, regardless of the AWS Region and AWS Account. So please prepend/append your aws account number to the name of bucket to avoid stack creation failure",
@@ -107,12 +107,12 @@
         "az1" : {
             "Description" : "Select AvailabilityZone 1",
             "Type" : "AWS::EC2::AvailabilityZone::Name",
-            "Default": "us-east-2a"
+            "Default": "us-east-1a"
         },
         "az2" : {
             "Description" : "Select AvailabilityZone 2",
             "Type" : "AWS::EC2::AvailabilityZone::Name",
-            "Default": "us-east-2b"
+            "Default": "us-east-1b"
         },
         "trustedSource" : {
             "Description" : "Trusted source to allow access to PA MGMT interface",
@@ -834,7 +834,6 @@
             "Type": "AWS::IAM::Role",
             "Properties": {
                 "RoleName": {"Fn::Join": ["-", ["TransitLambdaExecutionRole", { "Ref": "AWS::StackName" }]]},
-                "ManagedPolicyArns": ["arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"],
                 "AssumeRolePolicyDocument": {
                   "Version": "2012-10-17",
                   "Statement": [
@@ -857,15 +856,10 @@
                     "Version": "2012-10-17",
                     "Statement": [
                         {
-                            "Sid": "STSAccumRole",
+                            "Sid": "InvokeLambda",
                             "Effect": "Allow",
-                            "Action": ["sts:AssumeRole"],
+                            "Action": ["*"],
                             "Resource": ["*"]
-                        },
-                        {
-                            "Effect": "Allow",
-                            "Action": "*",
-                            "Resource": "*"
                         }
                     ]
                 }

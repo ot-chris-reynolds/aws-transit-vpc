@@ -259,7 +259,7 @@
                     "Region": {"Ref": "AWS::Region"}
                 }
             },
-            "Runtime": "python3.6",
+            "Runtime": "python3.9",
             "Timeout": "300"
         }
     },
@@ -282,7 +282,7 @@
                 "Region": {"Ref": "AWS::Region"}
             }
         },
-        "Runtime": "python3.6",
+        "Runtime": "python3.9",
         "Timeout": "300"
       },
       "DependsOn": [
@@ -308,7 +308,7 @@
                 "subscriberConfigTable": {"Ref": "DynamoDbSubscriberConfig"}
             }
         },
-        "Runtime": "python3.6",
+        "Runtime": "python3.9",
         "Timeout": "300"
       },
       "DependsOn": ["LambdaExecutionRole"]
@@ -330,7 +330,7 @@
                     "Region": {"Ref": "AWS::Region"}
                 }
             },
-            "Runtime": "python3.6",
+            "Runtime": "python3.9",
             "Timeout": "300"
         },
         "DependsOn": ["LambdaExecutionRole"]
@@ -352,7 +352,7 @@
                     "Region": {"Ref": "AWS::Region"}
                 }
             },
-            "Runtime": "python3.6",
+            "Runtime": "python3.9",
             "Timeout": "300"
         }
     },
@@ -373,7 +373,7 @@
                     "Region": {"Ref": "AWS::Region"}
                 }
             },
-            "Runtime": "python3.6",
+            "Runtime": "python3.9",
             "Timeout": "300"
         }
     },
@@ -394,7 +394,7 @@
                     "Region": {"Ref": "AWS::Region"}
                 }
             },
-            "Runtime": "python3.6",
+            "Runtime": "python3.9",
             "Timeout": "300"
         }
     },
@@ -417,7 +417,7 @@
                     "Region": {"Ref": "AWS::Region"}
                 }
             },
-            "Runtime": "python3.6",
+            "Runtime": "python3.9",
             "Timeout": "300"
         }
     },
@@ -435,7 +435,7 @@
                     ]]
                 }
             },
-            "Runtime": "python3.6",
+            "Runtime": "python3.9",
             "Timeout": "300"
         }
     },
@@ -773,7 +773,7 @@
               "S3Bucket": {"Ref": "LambdaFunctionsBucketName"},
               "S3Key": {"Ref": "LambdaZipFile"}
             },
-            "Runtime": "python3.6",
+            "Runtime": "python3.9",
             "Timeout": "150"
         }
     }
